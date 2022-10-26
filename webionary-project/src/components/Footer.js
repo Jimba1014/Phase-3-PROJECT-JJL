@@ -1,7 +1,7 @@
 function Footer(){
     return(
         <div>
-            <h1>Hi Im the Footer</h1>
+            <h1>This project is corperated by JJL</h1>
         </div>
     )
 }
