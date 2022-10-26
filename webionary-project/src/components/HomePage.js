@@ -1,35 +1,20 @@
 import { useEffect, useState } from 'react'
-import SearchBar from "./SearchBar"
 import NewArticleForm from "./NewArticleForm"
 import ArticleCard from "./ArticleCard"
 
-function HomePage(){
-    const [articleDetail, setArticleDetail] = useState([])
-    const [search,setSearch] = useState("")
+function HomePage({article, articleDetail, setArticleDetail}){
 
-    const displayedArticle = articleDetail.filter((articleDetail) =>
-    articleDetail.title.toLowerCase().includes(search.toLowerCase()) ||
-    articleDetail.description.toLowerCase().includes(search.toLowerCase()) ||
-    articleDetail.author.toLowerCase().includes(search.toLowerCase())
-  )
 
     function handleAddArticle(newArticleDetail) {
         setArticleDetail([...articleDetail, newArticleDetail]);
       }
 
-    useEffect(() => {
-        fetch('http://localhost:9292/articles_basics')
-        .then((res) => res.json())
-        .then((data) => setArticleDetail(data))
-    }, [])
-
-    const renderCards = articleDetail.map((detail) => {
+    const renderCards = article.map((detail) => {
         return <ArticleCard {...detail} key={detail.id}/> })
 
     return(
         <div>
             <h1>this is the home page</h1>
-            <SearchBar setSearch={setSearch}/>
             {renderCards}
         </div>
     )
