@@ -12,7 +12,9 @@ function Article( {updatedArticleDetails} ){
     return(
         <div>
             This will be the article
-            <p>{article?.title}</p>
+            <h2>{article?.title}</h2>
+            <p>Written by: {article?.author.first_name} {article?.author.last_name}</p>
+            <p>{article?.article_text}</p>
         </div>
     )
 }
