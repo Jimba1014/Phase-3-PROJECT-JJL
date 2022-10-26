@@ -3,8 +3,8 @@ import React from 'react';
 function SearchBar({ search, setSearch }) {
     return (
         <div className="search">
-            <input 
-            type="text" 
+            <input
+            type="text"
             id="search"
             placeholder="Search article"
             value={search}
