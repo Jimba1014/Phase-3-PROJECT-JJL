@@ -27,6 +27,10 @@ function App() {
     .then((data) => setArticleDetail(data))
 }, [])
 
+  // function updatedArticleDetail(updatedobj) {
+  //   const updatedArray = articleDetail
+  // }
+
 
   return (
     <div className="App">
