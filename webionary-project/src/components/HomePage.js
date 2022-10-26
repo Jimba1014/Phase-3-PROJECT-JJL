@@ -5,6 +5,7 @@ import ArticleCard from "./ArticleCard"
 
 function HomePage(){
     const [articleDetail, setArticleDetail] = useState([])
+    const [search,setSearch] = useState("")
 
     useEffect(() => {
         fetch('http://localhost:9292/articles_basics')
@@ -18,7 +19,7 @@ function HomePage(){
     return(
         <div>
             <h1>this is the home page</h1>
-            <SearchBar/>
+            <SearchBar setSearch={setSearch}/>
             {renderCards}
         </div>
     )
