@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function handleAddArticle( {handleAddArticle} ) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [airticle, setArticle] = useState("");
+    const [article, setArticle] = useState("");
     const [category, setSCategory] = useState("");
 
 
@@ -17,7 +17,7 @@ function NewArticleForm(e){
              body: JSON.stringify({
                 title: title,
                 description: description,
-                airticle: airticle,
+                article_text: article,
                 category: category
              })
         })
