@@ -27,9 +27,16 @@ function App() {
     .then((data) => setArticleDetail(data))
 }, [])
 
-  // function updatedArticleDetail(updatedobj) {
-  //   const updatedArray = articleDetail
-  // }
+  function updatedArticleDetail(updatedobj) {
+    const updatedArray = articleDetail.map((t) =>{
+      if (t.id === updatedobj.id) {
+        return updatedobj
+      } else {
+        return t
+      }
+    })
+    setArticleDetail(updatedArray)
+  }
 
 
   return (
@@ -45,7 +52,10 @@ function App() {
           setArticleDetail = {setArticleDetail}/>
         </Route>
         <Route path='/article'>
-          <Article/>
+          <Article 
+            updatedArticleDetail = {updatedArticleDetail}
+            articleDetail = {articleDetail}
+            />
         </Route>
         <Route path="/new_article">
           <NewArticleForm/>
