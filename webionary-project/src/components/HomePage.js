@@ -7,6 +7,12 @@ function HomePage(){
     const [articleDetail, setArticleDetail] = useState([])
     const [search,setSearch] = useState("")
 
+    const displayedArticle = articleDetail.filter((articleDetail) =>
+    articleDetail.title.toLowerCase().includes(search.toLowerCase()) ||
+    articleDetail.description.toLowerCase().includes(search.toLowerCase()) ||
+    articleDetail.author.toLowerCase().includes(search.toLowerCase())
+  )
+
     function handleAddArticle(newArticleDetail) {
         setArticleDetail([...articleDetail, newArticleDetail]);
       }
