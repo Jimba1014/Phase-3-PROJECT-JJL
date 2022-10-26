@@ -7,8 +7,8 @@ function HomePage(){
     const [articleDetail, setArticleDetail] = useState([])
     const [search,setSearch] = useState("")
 
-    function handleAddArticle(newArticle) {
-        setArticles([...airticle, newArticle]);
+    function handleAddArticle(newArticleDetail) {
+        setArticleDetail([...articleDetail, newArticleDetail]);
       }
 
     useEffect(() => {
