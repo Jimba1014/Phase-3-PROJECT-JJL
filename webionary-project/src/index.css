@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.card {
+  background-color: cornsilk;
+  border-radius: 4rem;
+  box-shadow: 5pt 6px rgba(180, 180, 159, 0.8);
+  width: 50%;
+  padding: 1rem;
+  margin: 1rem;
+}

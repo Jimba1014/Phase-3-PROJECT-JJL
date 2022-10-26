@@ -1,4 +1,5 @@
-import { Switch, Route } from 'react-router-dom'
+import React from "react";
+import { Switch, Route } from 'react-router-dom';
 import '../App.css';
 import Footer from './Footer'
 import NavBar from './NavBar'
@@ -11,8 +12,14 @@ function App() {
     <div className="App">
       <Header/>
       <NavBar/>
-      <HomePage/>
-      <NewArticleForm/>
+      <Switch>
+        <Route exact path ="/">
+          <HomePage/>
+        </Route>
+        <Route path="/new_article">
+          <NewArticleForm/>
+        </Route>
+      </Switch>
       <Footer/>
     </div>
   );
