@@ -7,6 +7,10 @@ function HomePage(){
     const [articleDetail, setArticleDetail] = useState([])
     const [search,setSearch] = useState("")
 
+    function handleAddArticle(newArticle) {
+        setArticles([...airticle, newArticle]);
+      }
+
     useEffect(() => {
         fetch('http://localhost:9292/articles_basics')
         .then((res) => res.json())
