@@ -14,11 +14,11 @@ function App() {
   const [articleDetail, setArticleDetail] = useState([])
   const [search,setSearch] = useState("")
 
-  const newDisplayedArticleArray = articleDetail.filter((articleDetail) =>
-  articleDetail.title.toLowerCase().includes(search.toLowerCase()) ||
-  articleDetail.description.toLowerCase().includes(search.toLowerCase()) ||
-  articleDetail.author.toLowerCase().includes(search.toLowerCase())
-)
+  const newDisplayedArticleArray = articleDetail.filter((articleDetail) => {
+    return articleDetail.title?.toLowerCase().includes(search.toLowerCase()) || 
+    articleDetail.description?.toLowerCase().includes(search.toLowerCase()) ||
+    articleDetail.author.name?.toLowerCase().includes(search.toLowerCase())
+  })
 
   useEffect(() => {
     fetch('http://localhost:9292/articles_basics')
