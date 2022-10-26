@@ -14,7 +14,7 @@ function HomePage({article, articleDetail, setArticleDetail}){
 
     return(
         <div>
-            <h1>this is the home page</h1>
+            <h1></h1>
             {renderCards}
         </div>
     )
