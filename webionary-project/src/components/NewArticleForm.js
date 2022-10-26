@@ -17,7 +17,7 @@ function NewArticleForm( {handleAddArticle} ) {
                 body: JSON.stringify({
                     title: title,
                     description: description,
-                    article: article,
+                    article_text: article,
                     category: category
                 })
             })
@@ -40,7 +40,7 @@ function NewArticleForm( {handleAddArticle} ) {
                 <input
                     type="text"
                     name="image"
-                    placeholder="Image URL"
+                    placeholder="Description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                 />
@@ -48,7 +48,7 @@ function NewArticleForm( {handleAddArticle} ) {
                 <input
                     type="text"
                     name="article"
-                    placeholder="article"
+                    placeholder="Article"
                     value={article}
                     onChange={(e) => setArticle(e.target.value)}
                 />
