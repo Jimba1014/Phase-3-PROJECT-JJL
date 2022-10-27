@@ -64,12 +64,12 @@ function Article({ refetch }) {
         <p className={styles.body}>{article?.article_text}</p>
         {openEdit ?
           <form>
-            <input placeHolder="Title" value={title} onChange={(e) => setTitle(e.target.value)}/>
-            <input placeHolder="Description" value={description} onChange={(e) => setDescription(e.target.value)}/>
+            <input placeHolder="Title" defaultValue={article.title} onChange={(e) => setTitle(e.target.value)}/>
+            <input placeHolder="Description" defaultValue={article.description} onChange={(e) => setDescription(e.target.value)}/>
             <textarea
               style={{height:200,width:600}}
               placeHolder="Article Text"
-              value={articleText}
+              defaultValue={article.article_text}
               onChange={(e) => setArticleText(e.target.value)}/>
             <button type="submit" onClick={handleUpdate}>
               Update Article
