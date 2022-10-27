@@ -35,6 +35,25 @@ function Article({ refetch }) {
     console.log(openEdit)
   }
 
+  const handleUpdate = () => {
+    fetch(`http://localhost:9292/articles/${article.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: title,
+        description: description,
+        article_text: articleText
+      })
+    })
+      .then((r) => r.json())
+      .then(() => {
+        refetch();
+        history.push("/");
+      });
+  }
+
   return (
     <div className={styles.article}>
       <div className={styles.main}>
@@ -43,13 +62,18 @@ function Article({ refetch }) {
           Written by: {article?.author?.first_name} {article?.author?.last_name}
         </p>
         <p className={styles.body}>{article?.article_text}</p>
-        {openEdit ? 
+        {openEdit ?
           <form>
-            <input placeHolder="Title"/>
-            <input placeHolder="Description"/>
+            <input placeHolder="Title" value={title} onChange={(e) => setTitle(e.target.value)}/>
+            <input placeHolder="Description" value={description} onChange={(e) => setDescription(e.target.value)}/>
             <textarea
               style={{height:200,width:600}}
-              placeHolder="Article Text"/>
+              placeHolder="Article Text"
+              value={articleText}
+              onChange={(e) => setArticleText(e.target.value)}/>
+            <button type="submit" onClick={handleUpdate}>
+              Update Article
+            </button>
           </form>
         : null}
         <button className={styles.edit} onClick={handleOpenEdit}>
