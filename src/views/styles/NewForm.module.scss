@@ -1,0 +1,79 @@
+@import "../../styles/variables.scss";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 100px;
+
+  input,
+  textarea,
+  .select > div {
+    border: none;
+    outline: none;
+    font-family: $title !important;
+  }
+
+  .title {
+    height: 80px;
+    font-size: 70px;
+
+    &::placeholder {
+      font-size: 70px;
+      font-family: $title;
+    }
+  }
+
+  .select {
+    font-size: 20px;
+    margin-top: 24px;
+
+    * {
+      outline: none;
+      box-shadow: none;
+
+      cursor: pointer !important;
+
+      &:focus,
+      :focus-visible {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+
+    div {
+      transition: all 0.3s ease;
+      font-family: $title !important;
+      font-size: 20px;
+    }
+  }
+
+  .description {
+    font-size: 20px;
+    padding-left: 12px;
+  }
+
+  .body {
+    height: 300px;
+    font-size: 35px;
+    padding-left: 12px;
+    margin-top: 32px;
+
+    &::placeholder {
+      font-size: 35px;
+      font-family: $title;
+    }
+  }
+
+  .submit {
+    background-color: rgb(75, 75, 243);
+    color: white;
+    font-family: $title !important;
+    padding: 10px;
+    width: 300px;
+    border: none;
+    outline: none;
+
+    margin: 0 auto;
+    margin-top: 48px;
+  }
+}
