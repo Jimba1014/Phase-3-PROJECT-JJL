@@ -1,21 +1,35 @@
-import { useHistory } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
-function ArticleCard({title, description, author, detail}){
+import styles from "./styles/ArticleCard.module.scss";
 
-    const history = useHistory();
+import defaultImage from "../assets/placeholder.webp";
 
-    function handleClick(){
-        history.push({
-            pathname: '/article',
-            state: {test: detail}
-        })
-    }
-    return(
-        <div  onClick = {handleClick} className="card">
-            <h1 className="card_title">{title}</h1>
-            <p className="article_text">{description}</p>
-            <p>Author: {author?.first_name} {author?.last_name}</p>
-        </div>
-    )
+function ArticleCard({ title, description, author, detail, pictures }) {
+  const history = useHistory();
+
+  function handleClick() {
+    history.push({
+      pathname: "/article",
+      state: { test: detail },
+    });
+  }
+  return (
+    <div onClick={handleClick} className={styles.card}>
+      <div className={styles.image}>
+        <img src={pictures?.length ? pictures?.[0]?.image_url : defaultImage} />
+      </div>
+
+      <div className={styles.info}>
+        <h1 className="card_title">{title}</h1>
+        <p className={styles.desc}>{description}</p>
+        {author?.categories.length && <p>in {author?.categories?.[0]?.name}</p>}
+        {author && (
+          <p className={styles.author}>
+            by {author?.first_name} {author?.last_name}
+          </p>
+        )}
+      </div>
+    </div>
+  );
 }
-export default ArticleCard
+export default ArticleCard;

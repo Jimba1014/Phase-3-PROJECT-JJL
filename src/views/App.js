@@ -14,7 +14,7 @@ const App = () => {
   const [articleDetail, setArticleDetail] = useState([]);
   const [searchOptions, setSearchOptions] = useState([]);
 
-  useEffect(() => {
+  const getArticles = () => {
     fetch("http://localhost:9292/articles_basics")
       .then((res) => res.json())
       .then((data) => {
@@ -25,6 +25,10 @@ const App = () => {
           })
         );
       });
+  };
+
+  useEffect(() => {
+    getArticles();
   }, []);
 
   function updatedArticleDetail(updatedobj) {
@@ -58,10 +62,11 @@ const App = () => {
           <Article
             updatedArticleDetail={updatedArticleDetail}
             articleDetail={articleDetail}
+            refetch={getArticles}
           />
         </Route>
         <Route path="/new_article">
-          <NewArticleForm handleAddArticle={handleAddArticle}/>
+          <NewArticleForm refetch={getArticles} />
         </Route>
       </Switch>
       <Footer />
