@@ -1,0 +1,44 @@
+@import "../../styles/variables.scss";
+
+.article {
+  display: flex;
+  gap: 48px;
+  padding: 0 80px;
+  justify-content: space-between;
+  margin-top: 32px;
+
+  .main {
+    flex-basis: 80%;
+  }
+
+  .image {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    img {
+      width: 80%;
+    }
+
+    p {
+      margin: 16px 0;
+      color: $secondary;
+    }
+
+    hr {
+      width: 100%;
+    }
+  }
+
+  h2 {
+    font-size: 50px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    &.author {
+      margin-bottom: 50px;
+      color: $secondary;
+    }
+  }
+}

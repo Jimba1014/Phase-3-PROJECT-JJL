@@ -1,0 +1,15 @@
+.header {
+  font-size: 80px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 32px;
+
+  img {
+    height: 80px;
+  }
+}
