@@ -1,6 +1,5 @@
 @import "./variables.scss";
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Source+Sans+Pro:wght@300;400&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=Source+Sans+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap");
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -150,20 +149,6 @@ h6 {
 
 .container {
   padding: 0 50px;
-}
-
-.card {
-  position: flex;
-  padding: 20px;
-  margin-right: 70%;
-  border: 0.5px solid black;
-}
-
-#react-select-4-listbox {
-  > div,
-  * {
-    font-size: 17px !important;
-  }
 }
 
 #react-select-4-listbox {

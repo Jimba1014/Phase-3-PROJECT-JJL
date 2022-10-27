@@ -12,7 +12,7 @@ const categories = [
   { value: 6, label: "Entertainment" },
 ];
 
-function NewArticleForm({ handleAddArticle }) {
+function NewArticleForm({ refetch }) {
   const [articleInfo, setArticleInfo] = useState({});
 
   const onChangeHandler = (e) => {
@@ -22,6 +22,9 @@ function NewArticleForm({ handleAddArticle }) {
   function handleSubmit(e) {
     console.log(articleInfo);
     e.preventDefault();
+
+    const author = articleInfo?.author?.split(" ");
+
     fetch("http://localhost:9292/articles", {
       method: "POST",
       headers: {
@@ -30,24 +33,38 @@ function NewArticleForm({ handleAddArticle }) {
       body: JSON.stringify({
         title: articleInfo.title,
         description: articleInfo.description,
-        article_text: articleInfo.article,
+        article_text: articleInfo.article_text,
         category: articleInfo.category,
+        first_name: author[0],
+        last_name: author[1],
       }),
     })
       .then((r) => r.json())
-      .then((newArticle) => handleAddArticle(newArticle));
+      .then(() => refetch());
   }
 
   return (
     <form onSubmit={handleSubmit} className={`${styles.form} container`}>
-      <input
-        type="text"
-        name="title"
-        placeholder="Title"
-        value={articleInfo.title}
-        onChange={onChangeHandler}
-        className={styles.title}
-      />
+      <div className={styles.top}>
+        <input
+          type="text"
+          name="title"
+          placeholder="Title"
+          value={articleInfo.title}
+          onChange={onChangeHandler}
+          className={styles.title}
+          required
+        />
+        <input
+          placeholder="Who are you?"
+          className={styles.name}
+          name="author"
+          onChange={onChangeHandler}
+          value={articleInfo.author}
+          required
+        />
+      </div>
+
       <Select
         options={categories}
         placeholder="What are you writing about?"
@@ -63,6 +80,7 @@ function NewArticleForm({ handleAddArticle }) {
         value={articleInfo.description}
         onChange={onChangeHandler}
         className={styles.description}
+        required
       />
       <textarea
         type="text"
@@ -71,6 +89,7 @@ function NewArticleForm({ handleAddArticle }) {
         value={articleInfo.article_text}
         onChange={onChangeHandler}
         className={styles.body}
+        required
       />
 
       <button type="submit" className={styles.submit}>

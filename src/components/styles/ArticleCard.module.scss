@@ -1,0 +1,40 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  padding: 40px;
+  border-bottom: 1px solid rgb(212, 210, 210);
+  align-items: center;
+
+  .image {
+    width: max-content;
+
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+
+  .info {
+    width: max-content;
+
+    h1 {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .desc {
+      font-size: 25px;
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+
+    .author {
+      font-style: italic;
+      color: rgb(134, 126, 126);
+      margin-top: 16px;
+    }
+  }
+}
