@@ -13,13 +13,24 @@
     font-family: $title !important;
   }
 
-  .title {
-    height: 80px;
-    font-size: 70px;
-
-    &::placeholder {
+  .top {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-end;
+    .name {
+      font-size: 20px;
+      width: 500px;
+      color: $secondary;
+    }
+    .title {
       font-size: 70px;
-      font-family: $title;
+      width: 100%;
+
+      &::placeholder {
+        font-size: 70px;
+        font-family: $title;
+      }
     }
   }
 
@@ -57,6 +68,7 @@
     font-size: 35px;
     padding-left: 12px;
     margin-top: 32px;
+    resize: vertical;
 
     &::placeholder {
       font-size: 35px;
@@ -72,8 +84,13 @@
     width: 300px;
     border: none;
     outline: none;
-
+    cursor: pointer;
     margin: 0 auto;
     margin-top: 48px;
+    transition: 0.3s ease-out;
+
+    &:hover {
+      background-color: rgb(24, 24, 153);
+    }
   }
 }
