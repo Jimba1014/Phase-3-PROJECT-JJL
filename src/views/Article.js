@@ -43,7 +43,15 @@ function Article({ refetch }) {
           Written by: {article?.author?.first_name} {article?.author?.last_name}
         </p>
         <p className={styles.body}>{article?.article_text}</p>
-        {openEdit ? <p>Hello There</p> : null}
+        {openEdit ? 
+          <form>
+            <input placeHolder="Title"/>
+            <input placeHolder="Description"/>
+            <textarea
+              style={{height:200,width:600}}
+              placeHolder="Article Text"/>
+          </form>
+        : null}
         <button className={styles.edit} onClick={handleOpenEdit}>
           Edit Article
         </button>
