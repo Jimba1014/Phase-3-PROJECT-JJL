@@ -17,8 +17,8 @@ function Article() {
     <div className={styles.article}>
       <div className={styles.main}>
         <h2>{article?.title}</h2>
-        <p className={styles.author}>
-          Written by: {article?.author.first_name} {article?.author.last_name}
+        <p className={styles?.author}>
+          Written by: {article?.author?.first_name} {article?.author?.last_name}
         </p>
         <p className={styles.body}>{article?.article_text}</p>
       </div>

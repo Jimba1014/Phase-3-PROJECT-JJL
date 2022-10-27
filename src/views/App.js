@@ -37,6 +37,9 @@ const App = () => {
     });
     setArticleDetail(updatedArray);
   }
+  function handleAddArticle(newArticle) {
+    setArticleDetail([...articleDetail, newArticle])
+  }
 
   return (
     <div className="App">
@@ -58,7 +61,7 @@ const App = () => {
           />
         </Route>
         <Route path="/new_article">
-          <NewArticleForm />
+          <NewArticleForm handleAddArticle={handleAddArticle}/>
         </Route>
       </Switch>
       <Footer />
