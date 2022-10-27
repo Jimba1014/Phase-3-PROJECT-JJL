@@ -151,3 +151,10 @@ h6 {
 .container {
   padding: 0 50px;
 }
+
+#react-select-4-listbox {
+  > div,
+  * {
+    font-size: 17px !important;
+  }
+}
