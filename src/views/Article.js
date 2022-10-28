@@ -32,20 +32,19 @@ function Article({ refetch }) {
   };
   function handleOpenEdit(){
     setOpenEdit(r => !r)
-    console.log(openEdit)
   }
 
   const handleUpdate = () => {
     fetch(`http://localhost:9292/articles/${article.id}`, {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify({
         title: title,
         description: description,
         article_text: articleText
-      })
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      }
     })
       .then((r) => r.json())
       .then(() => {
@@ -64,12 +63,23 @@ function Article({ refetch }) {
         <p className={styles.body}>{article?.article_text}</p>
         {openEdit ?
           <form>
-            <input placeHolder="Title" defaultValue={article.title} onChange={(e) => setTitle(e.target.value)}/>
-            <input placeHolder="Description" defaultValue={article.description} onChange={(e) => setDescription(e.target.value)}/>
+            <input
+              placeholder="Title"
+              defaultValue={article.title}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+            <input
+              placeholder="Description"
+              defaultValue={article.description}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
             <textarea
               style={{height:200,width:600}}
-              placeHolder="Article Text"
+              placeholder="Article Text"
               defaultValue={article.article_text}
+              value={articleText}
               onChange={(e) => setArticleText(e.target.value)}/>
             <button type="submit" onClick={handleUpdate}>
               Update Article
