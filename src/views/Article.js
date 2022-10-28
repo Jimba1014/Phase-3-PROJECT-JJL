@@ -48,7 +48,7 @@ function Article({ refetch }) {
         <p className={styles.body}>{article?.article_text}</p>
       </div>
       <div className={styles.image}>
-        <img src={article?.pictures?.[0]?.image_url} />
+        <img src={article?.pictures?.[0]?.image_url} alt={article?.picture?.[0].name} />
         <p>{article?.pictures?.[0]?.name}</p>
         {article?.pictures?.length ? <hr /> : <></>}
         <div className={styles.buttons}>
